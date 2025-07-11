@@ -76,7 +76,7 @@ export default function OSINTHub() {
 
   const { toast } = useToast()
 
-  const [currentPage, setCurrentPage] = useState<"home" | "about">("home")
+  const [currentPage, setCurrentPage] = useState<"home" | "about" | "contact">("home")
   const [isTransitioning, setIsTransitioning] = useState(false)
 
   useEffect(() => {
@@ -272,7 +272,7 @@ export default function OSINTHub() {
     window.open("https://osintmon.testnet.nfts2.me/", "_blank", "noopener,noreferrer")
   }
 
-  const handlePageTransition = (page: "home" | "about") => {
+  const handlePageTransition = (page: "home" | "about" | "contact") => {
     if (page === currentPage) return
 
     setIsTransitioning(true)
@@ -283,6 +283,253 @@ export default function OSINTHub() {
       }, 100)
     }, 300)
   }
+
+  const ContactPage = () => (
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 cyber-grid opacity-30"></div>
+      <div className="absolute inset-0 matrix-rain"></div>
+      <div className="absolute inset-0 scan-lines"></div>
+
+      {/* Header */}
+      <header className="relative z-10 flex items-center justify-between p-6 text-reveal">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-primary rounded flex items-center justify-center pulse-red">
+            <Shield className="w-5 h-5 text-white" />
+          </div>
+          <span className="text-xl font-bold">
+            OSINT<span className="text-primary">HUB</span>
+          </span>
+        </div>
+        <nav className="flex items-center gap-6 text-sm">
+          <button
+            onClick={() => handlePageTransition("home")}
+            className="hover:text-primary transition-colors hover-glow"
+          >
+            Home
+          </button>
+          <button
+            onClick={() => handlePageTransition("about")}
+            className="hover:text-primary transition-colors hover-glow"
+          >
+            About
+          </button>
+          <button className="text-primary">Contact</button>
+        </nav>
+      </header>
+
+      {/* Main Content */}
+      <div className="relative z-10 px-6 py-12">
+        <div className="max-w-4xl mx-auto">
+          {/* Page Title */}
+          <div className="text-center mb-16">
+            <h1 className="text-5xl md:text-7xl font-bold glitch-text mb-6" data-text="CONTACT">
+              CONTACT
+            </h1>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Get in touch with our team for support, partnerships, or inquiries
+            </p>
+          </div>
+
+          {/* Contact Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* Twitter Contact */}
+            <Card className="bg-card/90 border-primary/30 backdrop-blur-sm cyber-glow hover:border-primary/50 transition-all duration-300 group">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500/20 to-blue-600/40 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <svg
+                    className="w-8 h-8 text-blue-400"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </div>
+                <CardTitle className="text-2xl text-blue-400 mb-2">Twitter / X</CardTitle>
+                <CardDescription className="text-gray-400">Follow us for updates and announcements</CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <a
+                  href="https://twitter.com/AntonGoldini"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/50 hover:border-blue-400 text-blue-300 hover:text-blue-200 px-6 py-3 rounded-lg transition-all duration-300 cyber-glow group"
+                >
+                  <span className="text-lg font-mono">@AntonGoldini</span>
+                  <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                </a>
+                <p className="text-sm text-gray-500 mt-3">Direct messages open for business inquiries</p>
+              </CardContent>
+            </Card>
+
+            {/* Discord Contact */}
+            <Card className="bg-card/90 border-primary/30 backdrop-blur-sm cyber-glow hover:border-primary/50 transition-all duration-300 group">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-indigo-500/20 to-purple-600/40 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <svg
+                    className="w-8 h-8 text-indigo-400"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0190 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9460 2.4189-2.1568 2.4189Z" />
+                  </svg>
+                </div>
+                <CardTitle className="text-2xl text-indigo-400 mb-2">Discord</CardTitle>
+                <CardDescription className="text-gray-400">Join our community and chat with the team</CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <div className="inline-flex items-center gap-2 bg-indigo-600/20 border border-indigo-500/50 text-indigo-300 px-6 py-3 rounded-lg cyber-glow">
+                  <span className="text-lg font-mono">Maksone343</span>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText("Maksone343")
+                      toast({
+                        title: "Copied!",
+                        description: "Discord username copied to clipboard",
+                      })
+                    }}
+                    className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                    title="Copy to clipboard"
+                  >
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <p className="text-sm text-gray-500 mt-3">Click the copy icon to copy username</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Additional Information */}
+          <Card className="bg-card/90 border-primary/30 backdrop-blur-sm cyber-glow mb-12">
+            <CardHeader>
+              <CardTitle className="text-2xl text-primary flex items-center gap-2">
+                <AlertCircle className="w-6 h-6" />
+                Contact Information
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-white">Business Inquiries</h3>
+                  <ul className="space-y-2 text-gray-300">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Partnership opportunities</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Enterprise solutions</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Custom OSINT services</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>API integration support</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-white">Community Support</h3>
+                  <ul className="space-y-2 text-gray-300">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Technical assistance</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>NFT holder support</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Feature requests</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Bug reports</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="border-t border-primary/20 pt-6">
+                <div className="bg-background/30 p-4 rounded border border-primary/20">
+                  <h4 className="text-lg font-semibold text-primary mb-3 flex items-center gap-2">
+                    <Shield className="w-5 h-5" />
+                    Response Time
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-300">
+                    <div>
+                      <span className="text-blue-400 font-semibold">Twitter:</span>
+                      <p>Usually within 24 hours</p>
+                    </div>
+                    <div>
+                      <span className="text-indigo-400 font-semibold">Discord:</span>
+                      <p>Real-time during active hours</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Call to Action */}
+          <div className="text-center">
+            <Card className="bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border-primary/50 backdrop-blur-sm cyber-glow">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-white mb-4">Ready to Connect?</h3>
+                <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+                  Whether you're interested in our OSINT services, need technical support, or want to explore
+                  partnership opportunities, we're here to help. Reach out through your preferred channel and let's
+                  start the conversation.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    onClick={() => window.open("https://twitter.com/AntonGoldini", "_blank")}
+                    className="bg-blue-600 hover:bg-blue-700 text-white cyber-glow"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                    Follow on Twitter
+                  </Button>
+                  <Button
+                    onClick={handleNFTClick}
+                    variant="outline"
+                    className="border-primary text-primary hover:bg-primary hover:text-white bg-transparent"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Get NFT Access
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="relative z-10 text-center py-6 text-xs text-gray-500">
+        © 2025 OSINT HUB • SECURE INTELLIGENCE PLATFORM
+      </footer>
+    </div>
+  )
 
   const AboutUsPage = () => (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -529,6 +776,16 @@ export default function OSINTHub() {
     )
   }
 
+  if (currentPage === "contact") {
+    return (
+      <div
+        className={`transition-all duration-300 ${isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}
+      >
+        <ContactPage />
+      </div>
+    )
+  }
+
   // Login/Register UI
   if (!isLoggedIn) {
     return (
@@ -574,7 +831,12 @@ export default function OSINTHub() {
               >
                 About
               </button>
-              <button className="hover:text-primary transition-colors hover-glow">Contact</button>
+              <button
+                onClick={() => handlePageTransition("contact")}
+                className="hover:text-primary transition-colors hover-glow"
+              >
+                Contact
+              </button>
             </nav>
           </header>
 
