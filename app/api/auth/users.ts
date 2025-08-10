@@ -1,6 +1,8 @@
 // Файл для управления пользователями через переменные окружения
 // Пользователи теперь хранятся в .env файле
 
+import { verifyPassword } from '../../../lib/auth'
+
 interface User {
   id: string
   email: string
@@ -61,8 +63,6 @@ function parseUsersFromEnv(): User[] {
 
 // Получаем пользователей из переменных окружения
 export const AUTHORIZED_USERS = parseUsersFromEnv()
-
-import { verifyPassword } from '../../../lib/auth'
 
 // Функция для проверки пользователя с безопасным хешированием
 export function findUser(login: string, password: string) {

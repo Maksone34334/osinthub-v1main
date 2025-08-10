@@ -8,11 +8,16 @@ const PENDING_REGISTRATIONS: Array<{
   createdAt: string
 }> = []
 
-// SECURITY: User data should be stored in environment variables or secure database
-// This is now handled by the centralized user management system
-import { AUTHORIZED_USERS } from "../auth/users"
-
-const USERS = [...AUTHORIZED_USERS]
+// SECURITY: User data managed via environment variables
+// Mock users array for registration approval - real users are in environment variables
+const USERS: Array<{
+  id: string
+  email: string
+  login: string
+  password: string
+  status: "active" | "pending" | "blocked"
+  createdAt: string
+}> = []
 
 // Get all pending registrations
 export async function GET() {
