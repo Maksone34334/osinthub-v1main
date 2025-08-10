@@ -27,4 +27,4 @@ yarn-error.log*
 next-env.d.ts.env
 .env.local
 cat .gitignore     
-git status -s 
+git status -s .env
