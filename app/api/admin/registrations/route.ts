@@ -9,7 +9,7 @@ const PENDING_REGISTRATIONS: Array<{
 }> = []
 
 // SECURITY: User data managed via environment variables
-// Mock users array for registration approval - real users are in environment variables
+// Mock users array for registration approval - real users are in environment variables  
 const USERS: Array<{
   id: string
   email: string
