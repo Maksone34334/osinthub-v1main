@@ -47,34 +47,7 @@ function parseUsersFromEnv(): User[] {
     userIndex++
   }
 
-  // Добавляем пользователя jaguar
-  users.push({
-    id: "jaguar",
-    email: "jaguar@osinthub.local",
-    login: "jaguar",
-    password: "1258852@@",
-    status: "active",
-    role: "admin",
-    createdAt: "2024-01-01T00:00:00Z",
-  })
 
-  // Если нет других пользователей в .env, создаем дефолтного админа
-  if (users.length === 1) {
-    // только jaguar
-    console.warn("⚠️ No additional users found in environment variables. Only jaguar user available.")
-    users.push({
-      id: "1",
-      email: "admin@osinthub.local",
-      login: "admin",
-      password: "ChangeMe123!",
-      status: "active",
-      role: "admin",
-      createdAt: "2024-01-01T00:00:00Z",
-    })
-  }
-
-  return users
-}
 
 // Получаем пользователей из переменных окружения
 export const AUTHORIZED_USERS = parseUsersFromEnv()
