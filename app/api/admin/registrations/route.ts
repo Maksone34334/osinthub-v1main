@@ -15,24 +15,7 @@ const USERS: Array<{
   password: string
   status: "active" | "pending" | "blocked"
   createdAt: string
-}> = [
-  {
-    id: "1",
-    email: "admin@example.com",
-    login: "admin",
-    password: "admin123",
-    status: "active",
-    createdAt: "2024-01-01T00:00:00Z",
-  },
-  {
-    id: "2",
-    email: "demo@example.com",
-    login: "demo",
-    password: "demo123",
-    status: "active",
-    createdAt: "2024-01-01T00:00:00Z",
-  },
-]
+
 
 // Get all pending registrations
 export async function GET() {
