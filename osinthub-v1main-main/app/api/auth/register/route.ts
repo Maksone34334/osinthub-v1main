@@ -9,13 +9,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 })
     }
 
-    // Валидация email
+    
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 })
     }
 
-    // Логируем запрос на регистрацию
     console.log(`📝 Registration request from: ${email}`)
 
     return NextResponse.json({
